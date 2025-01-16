@@ -1,0 +1,407 @@
+{% comment %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML Page</title>
+</head>
+<body>
+  <style>
+     body {
+      background-image: url('background-image.jpg');
+      background-size: cover;
+      background-position: center;
+     
+    }
+
+    .navbar {
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    .navbar a {
+      float: left;
+      color: #fff;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .navbar a:hover {
+      background-color: #ddd;
+      color: #333;
+    }
+
+    .navbar a.active {
+      background-color: #fff;
+      color: #333;
+    }
+
+    .navbar .logout {
+      float: right;
+    }
+    body {
+      background-image: url("/static/img2.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+
+  <div class="navbar">
+    <a class="active" href="#">Home</a>
+    <a href="comp_apply">Applications</a>
+    <a href="managet">Manage Tender</a>
+
+    
+    
+    <a class="logout" href=" ">Logout</a>
+    
+  </div>
+
+
+    <style>
+    
+    
+      body {
+          background-color: #f5f5f5;
+        } 
+    
+        .table-container {
+          display: flex;
+          justify-content: center;
+        }
+    
+        table {
+          width: 80%;
+          background-color: #e7f3fe;
+          border-collapse: collapse;
+        }
+    
+        th, td {
+          padding: 8px;
+          text-align: left;
+          border-bottom: 1px solid #ddd;
+        }
+    
+        th {
+          background-color: #4e7fc4;
+          color: white;
+        }
+    
+        button {
+          padding: 6px 10px;
+          border: none;
+          background-color: #4e7fc4;
+          color: white;
+          cursor: pointer;
+        }
+    
+        button:hover {
+          background-color: #346093;
+        }
+    
+      </style>
+      <div class="table-container">
+        <table>
+          <tr>
+            <th>Applied for Tender Id</th>
+            <th>Company name</th>
+            <th>Status</th>
+            <th>Status</th>
+        
+            
+          </tr>
+          {%for record in allapplis %}
+          <tr>
+            <td>{{record.tid}}</td>
+            <td>{{record.company_name}}</td>
+            <td><button class="approve-button">Approve</button></td>
+            <td><button class="reject-button">Reject</button></td>
+            
+
+
+          </tr>
+          
+          {% endfor %}
+    
+       
+          <!-- Add more rows as needed -->
+        </table>
+      </div>
+    
+
+ 
+</body>
+</html>{% endcomment %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Applications</title>
+  </head>
+  <body>
+   
+    <style>
+      {% comment %} body {
+        background-image: url('background-image.jpg');
+        background-size: cover;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+      } {% endcomment %}
+    
+      .navbar {
+        background-color: #333;
+        overflow: hidden;
+      }
+    
+      .navbar a {
+        float: left;
+        color: #fff;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 16px;
+      }
+    
+      .navbar a:hover {
+        background-color: #ddd;
+        color: #333;
+      }
+    
+      .navbar a.active {
+        background-color: #fff;
+        color: #333;
+      }
+    
+      .navbar .logout {
+        float: right;
+      }
+      body {
+        background-image: url("/static/img2.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    
+    <div class="navbar">
+      <a class="active" href="#">Home</a>
+      <a href="comp_apply">Applications</a>
+      {% comment %} <a href="managet">Manage Tender</a> {% endcomment %}
+      {% comment %} <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        View Company details
+      </button> {% endcomment %}
+      <a class="logout" href="company">Logout</a>
+    </div>
+{% comment %} <--mail modal--> {% endcomment %}
+    <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+  <!-- compdetailModal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Show</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method='post' action='application'>
+          {% csrf_token %}
+        <div class="form-group">
+          <label for="exampleInputPassword1">Enter id of Tender </label>
+          <input type="text" class="form-control" id="exampleInputPassword1" name ="tid" placeholder="Enter id of Tender">
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Show</button>
+      </form>
+      </div>
+     
+    </div>
+  </div>
+</div>
+      <style>
+      
+      
+          {% comment %} body {
+            background-color: #f5f5f5;
+          } {% endcomment %}
+      
+          .table-container {
+            display: flex;
+            justify-content: center;
+          }
+      
+          table {
+            width: 80%;
+            background-color: #e7f3fe;
+            border-collapse: collapse;
+          }
+      
+          th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+          }
+      
+          th {
+            background-color: #4e7fc4;
+            color: white;
+          }
+      
+          button {
+            padding: 6px 10px;
+            border: none;
+            background-color: #4e7fc4;
+            color: white;
+            cursor: pointer;
+          }
+      
+          button:hover {
+            background-color: #346093;
+          }
+
+      <!--gov login modal-->
+
+
+        </style>
+
+        <!-- Modal -->
+<div class="modal fade" id="mailModal" tabindex="-1" role="dialog" aria-labelledby="mailModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mailModal">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method ='post' action ='/mail'>
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="exampleInputEmail1">Enter Company Mail</label>
+            <input type="text" class="form-control" id="loginusername" aria-describedby="emailHelp" name = "cmailid"placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted"></small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Enter Message</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" name ="mailcont"placeholder="Enter mail content here">
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        {% comment %} <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> {% endcomment %}
+        {% comment %} <button type="button" class="btn btn-primary">Save changes</button> {% endcomment %}
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="table-container">
+          <table>
+            <tr>
+              <th>Applied for Tender Id</th>
+              {% comment %} <th>Company name</th> {% endcomment %}
+              <th>Quotation price (Rs)</th>
+              <th>Quotation Experience (In Months)</th>
+              <th>Quotation Duration (In Months)</th>
+              {% comment %} <th>Status</th> {% endcomment %}
+              <th>Mail ID</th>
+              
+              {% comment %} <th>Status</th> {% endcomment %}
+              {% comment %} <th>Status</th> {% endcomment %}
+              <th>Mail</th>
+              
+            </tr>
+            {%for record in allapplis %}
+            <tr>
+              <td>{{record.tid}}</td>
+              {% comment %} <td>{{request.user}}</td> {% endcomment %}
+              <td>{{record.q_price}}</td>
+              <td>{{record.q_exp}}</td>
+              <td>{{record.q_duration}}</td> 
+              <td>{{record.c_email}}</td>
+              <td> 
+              <a class="nav-link"  data-toggle="modal" data-target="#mailModal">Click here</a>
+              </td>
+            
+              
+              {% comment %} <td> <a href="https://mail.google.com" class="button-link">Click here</a></td>
+               {% endcomment %}
+             {% comment %} <td>{{record.c_email}}</td> {% endcomment %}
+      
+             {% comment %} <form method='post' action='mail'>
+              {% csrf_token %}
+              <button type="submit" class="btn btn-primary">Click here</button>
+            </form> {% endcomment %}
+  
+            </tr>
+            
+            {% endfor %}
+      
+         
+            <!-- Add more rows as needed -->
+          </table>
+        </div>
+      
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
