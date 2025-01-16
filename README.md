@@ -2,6 +2,8 @@
 # Login Credentials:
 User Login: User10/Anushul@10
 Admin Login: Admin/Admin
+
+#About
 When a company requires a service or merchandise, it initiates a tender process. The company maintains an empaneled list of vendors who are eligible to submit bids for these tenders. Only vendors who are part of this empaneled list are allowed to participate in the bidding process. Each vendor is permitted to submit a single bid for each individual tender.
 Once the tenders are floated, multiple vendors may submit their bids, competing for the contract. After evaluating the bids, the company selects the most suitable one based on factors such as cost, quality, and vendor reliability. The chosen vendor is then awarded the order, and the procurement process moves forward.
 
